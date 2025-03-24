@@ -1,6 +1,6 @@
 package com.concursoninja.demo.enums;
 
-public enum TipoUsuario {
+public enum TypeUser {
     ADMIN,
-    CANDIDATO
+    CANDIDATE
 }

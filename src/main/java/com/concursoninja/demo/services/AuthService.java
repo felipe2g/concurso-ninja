@@ -1,24 +1,24 @@
 package com.concursoninja.demo.services;
 
-import com.concursoninja.demo.dtos.UsuarioCreateDTO;
-import com.concursoninja.demo.dtos.UsuarioDTO;
-import com.concursoninja.demo.entities.Usuario;
-import com.concursoninja.demo.mappers.UsuarioMapper;
-import com.concursoninja.demo.repositories.UsuarioRepository;
+import com.concursoninja.demo.dtos.UserCreateDTO;
+import com.concursoninja.demo.dtos.UserDTO;
+import com.concursoninja.demo.entities.User;
+import com.concursoninja.demo.mappers.UserMapper;
+import com.concursoninja.demo.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
-    private final UsuarioRepository repository;
-    private final UsuarioMapper usuarioMapper;
+    private final UserRepository repository;
+    private final UserMapper userMapper;
 
-    public AuthService(UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper) {
-        this.repository = usuarioRepository;
-        this.usuarioMapper = usuarioMapper;
+    public AuthService(UserRepository userRepository, UserMapper userMapper) {
+        this.repository = userRepository;
+        this.userMapper = userMapper;
     }
 
-    public UsuarioDTO registrarUsuario(UsuarioCreateDTO dto) {
-        Usuario usuario = repository.save(usuarioMapper.toUsuario(dto));
-        return usuarioMapper.toUsuarioDTO(usuario);
+    public UserDTO registrarUsuario(UserCreateDTO dto) {
+        User user = repository.save(userMapper.toUser(dto));
+        return userMapper.toUserDTO(user);
     }
 }

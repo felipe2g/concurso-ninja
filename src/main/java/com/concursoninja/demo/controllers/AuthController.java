@@ -1,8 +1,7 @@
 package com.concursoninja.demo.controllers;
 
-import com.concursoninja.demo.dtos.UsuarioCreateDTO;
-import com.concursoninja.demo.dtos.UsuarioDTO;
-import com.concursoninja.demo.entities.Usuario;
+import com.concursoninja.demo.dtos.UserCreateDTO;
+import com.concursoninja.demo.dtos.UserDTO;
 import com.concursoninja.demo.services.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
@@ -22,12 +21,12 @@ public class AuthController {
     }
 
     @PostMapping(
-            value = "/registrar",
+            value = "/register",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<UsuarioDTO> registrarUsuario(@RequestBody @Valid UsuarioCreateDTO dto) {
-        UsuarioDTO usuario = authService.registrarUsuario(dto);
+    public ResponseEntity<UserDTO> registrarUsuario(@RequestBody @Valid UserCreateDTO dto) {
+        UserDTO usuario = authService.registrarUsuario(dto);
         return ResponseEntity.ok(usuario);
     }
 }
